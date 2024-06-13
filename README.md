@@ -13,7 +13,13 @@ Code initializing the datasets and model have already been provided in the main 
 <br> 
 <br> 
 TODO: 
+<br>
+<br>
+-> fix error where occasionally a read access violation occurs when running the model 
 <br> 
+(in the event of this happening, trying running the program again)
+<br>
+<br>
 -> create method to free data contained in model <br>
 <br>
 -> implement error handling
