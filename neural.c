@@ -675,7 +675,7 @@ int main()  {
 	
 
 	/* 
- 	//ALTERNATIVE MODEL (FASTER RUNTIME)
+ 	//alternative model (faster epoch runtime but worse initial convergence)
 	struct Model* model = create_model();
 	add_layer(model, 784, 16);
 	add_layer(model, 16, 16);
