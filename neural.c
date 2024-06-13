@@ -5,7 +5,7 @@
 #include <math.h>
 #include <time.h>
 
-#define PI 3.14159265358979323846
+#define PI 			3.14159265358979323846
 #define IMAGE_DATA_OFFSET	16
 #define IMAGE_DATA_SIZE		784
 #define IMAGE_ROW_SIZE		28
@@ -13,7 +13,7 @@
 
 #define LABEL_DATA_OFFSET	8
 #define LABEL_DATA_SIZE		1
-#define LABEL_VECTOR_SIZE   10
+#define LABEL_VECTOR_SIZE   	10
 
 struct Vector {
 	int length;
@@ -561,7 +561,7 @@ void set_minibatch(struct Dataset* dataset, struct Dataset* minibatch, int index
 
 void SGD(struct Model* model, struct Dataset* minibatch, double learning_rate) {
 	for (int i = 0; i < minibatch->size; i++) {
-		feed_forward(model, &minibatch->samples[i]);	// feed sample into network
+		feed_forward(model, &minibatch->samples[i]);		// feed sample into network
 		backpropagation(model, &minibatch->samples[i]);
 	}
 	apply_sgd_step(model, (double)minibatch->size, learning_rate);
@@ -571,10 +571,10 @@ void SGD(struct Model* model, struct Dataset* minibatch, double learning_rate) {
 
 void feed_forward(struct Model* model, struct Sample* sample) {
 	struct Layer* layer = model->head;
-	zero_neurons(model);								// clear neurons before feeding in data
+	zero_neurons(model);						// clear neurons before feeding in data
 	activation(sample->image_vector, layer);			// feed input data
 	for (; layer->next != NULL; layer = layer->next) {
-		activation(layer->activations, layer->next);	// compute next layers activation
+		activation(layer->activations, layer->next);		// compute next layers activation
 	}
 }
 
