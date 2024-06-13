@@ -674,10 +674,20 @@ int main()  {
 	load_mnist(test_dataset, "t10k-images.idx3-ubyte", "t10k-labels.idx1-ubyte");
 	
 
+	/* 
+ 	//ALTERNATIVE MODEL (FASTER RUNTIME)
+	struct Model* model = create_model();
+	add_layer(model, 784, 16);
+	add_layer(model, 16, 16);
+	add_layer(model, 16, 10);
+	train(model, training_dataset, test_dataset, 10, 0.1, 10);
+	*/
+
 	struct Model* model = create_model();
 	add_layer(model, 784, 100);
 	add_layer(model, 100,10);
 	train(model, training_dataset, test_dataset, 1, 3.0, 10);
+
 	
 
 	for (int i = 0; i < 10; i++) {
