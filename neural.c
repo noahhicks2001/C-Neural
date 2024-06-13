@@ -553,9 +553,7 @@ void swap(struct Dataset* dataset, int i, int j) {
 
 void set_minibatch(struct Dataset* dataset, struct Dataset* minibatch, int index) {
 	for (int i = 0; i < minibatch->size; i++) {
-		copy_vector(minibatch->samples[i].image_vector, dataset->samples[index + i].image_vector);
-		copy_vector(minibatch->samples[i].label_vector, dataset->samples[index + i].label_vector);
-		minibatch->samples[i].label_value = dataset->samples[index + i].label_value;
+		copy_sample(&minibatch->samples[i], &dataset->samples[index + i]);
 	}
 }
 
