@@ -595,7 +595,7 @@ void backpropagation(struct Model* model, struct Sample* sample) {
 	struct Layer* layer = model->tail;
 	compute_output_error(layer, sample);
 	compute_bias_gradients(layer);
-	compute_weight_gradients(layer, layer->prev);
+	compute_weight_gradients(layer, layer->prev->activations);
 
 	for (layer = layer->prev; layer != NULL; layer = layer->prev) {
 		propagate_error(layer);
