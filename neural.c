@@ -546,8 +546,8 @@ void swap(struct Dataset* dataset, int i, int j) {
 	copy_sample(&dataset->samples[j], temp);
 
 	// free temp sample
-	free(temp->label_vector);
-	free(temp->image_vector);
+	free_vector(temp->image_vector);
+	free_vector(temp->label_vector);
 	free(temp);
 
 }
